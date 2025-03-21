@@ -1,0 +1,12 @@
+--- vendor/magento/module-theme/view/frontend/templates/html/notices.phtml	2025-03-21 15:51:25.303000000 +0000
++++ vendor/magento/module-theme/view/frontend/templates/html/notices.phtml	2025-03-21 15:51:36.980143144 +0000
+@@ -65,6 +65,9 @@
+     <div class="message global demo">
+         <div class="content">
+             <p><?= $block->escapeHtml(__('This is a demo store. No orders will be fulfilled.')) ?></p>
++            <?php if(is_file('trial_expiry')): ?>
++                <?= file_get_contents('trial_expiry'); ?>
++            <?php endif; ?>
+         </div>
+     </div>
+ <?php endif; ?>

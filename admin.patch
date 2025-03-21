@@ -1,0 +1,12 @@
+--- vendor/magento/module-backend/view/adminhtml/templates/page/notices.phtml	2025-03-21 15:15:43.330000000 +0000
++++ vendor/magento/module-backend/view/adminhtml/templates/page/notices.phtml	2025-03-21 15:52:31.646698827 +0000
+@@ -23,6 +23,9 @@
+     <div class="messages">
+         <div class="message message-warning message-demo-mode">
+             <?= $block->escapeHtml(__('This is only a demo store. You can browse and place orders, but nothing will be processed.')) ?>
++            <?php if(is_file('trial_expiry_admin')): ?>
++                <?= file_get_contents('trial_expiry_admin'); ?>
++            <?php endif; ?>
+         </div>
+     </div>
+ <?php endif; ?>
